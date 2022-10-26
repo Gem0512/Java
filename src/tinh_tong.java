@@ -1,18 +1,22 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class tinh_tong {
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int t = Integer.parseInt(sc.nextLine());
-        while(t>0){
-            long n = Integer.parseInt(sc.nextLine());
-
-
-            System.out.println((n*(n+1))/2);
-            t=t-1;
+    static public boolean isInteger(String s) {
+        return s.length() <= 10 && s.matches("-?\\d+");
+    }
+    public static void main(String[] args) throws FileNotFoundException {
+        FileInputStream myFile = new FileInputStream("DATA.in");
+        Scanner input = new Scanner(myFile);
+        long result = 0;
+        while (input.hasNextLine()) {
+            String[] word = input.nextLine().split("\\s+");
+            for (String i : word)
+                if (isInteger(i) && Integer.parseInt(i) <= Integer.MAX_VALUE)
+                    result += Integer.parseInt(i);
         }
-
-
+        System.out.println(result);
+        input.close();
     }
 }

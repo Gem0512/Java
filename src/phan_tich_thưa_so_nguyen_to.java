@@ -8,26 +8,23 @@ public class phan_tich_thưa_so_nguyen_to {
 
         long  t=sc.nextInt();
         int k=1;
-        long dem = 0;
         while(k<=t)
         {
             long  n=sc.nextInt();
-
-            for(long i = 2; i <= n; i++){
-
+            System.out.print("Test "+k+": ");
+            for(int i = 2; i <= n; i++){
+                int dem = 0;
                 while(n % i == 0){
-                  dem=dem+i;
+                    ++dem;
                     n /= i;
                 }
-
+                if(dem!=0) System.out.print(i+"("+dem+")"+" ");
             }
-
+            System.out.println();
             k=k+1;
         }
-        System.out.println(dem);
+
 
 
     }
 }
-
-
